@@ -1,6 +1,8 @@
 # simple-style
 地理院地図Vectorをシンプルなスタイルで表示してみる
 
+demo https://mghs15.github.io/simple-style/index.html
+
 ## スタイルのシンプル化にあたって
 * 国道/県道/市町村道やJR/私鉄といった管理・運営主体の区別を削除。
 * 幅員（13mを境に2区分）や単複の区別のみ
