@@ -1,4 +1,5 @@
-{"version": 8,"name": "Vector","metadata": {},"sources": {"gsibv-vectortile-source-1-4-16": {"type": "vector","tiles": ["https://cyberjapandata.gsi.go.jp/xyz/experimental_bvmap/{z}/{x}/{y}.pbf"], "maxzoom": 16, "minzoom": 4, "attribution": "<a href='https://maps.gsi.go.jp/vector/' target='_blank'>地理院地図Vector（仮称）</a>"}}, "sprite": "https://cyberjapandata.gsi.go.jp/vector/sprite/pale", "glyphs": "https://cyberjapandata.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf","layers": [
+{"version": 8,"name": "Vector","metadata": {},"sources": {"gsibv-vectortile-source-1-4-16": {"type": "vector","tiles": ["https://cyberjapandata.gsi.go.jp/xyz/experimental_bvmap/{z}/{x}/{y}.pbf"], "maxzoom": 16, "minzoom": 4, "attribution": "<a href='https://maps.gsi.go.jp/vector/' target='_blank'>地理院地図Vector（仮称）</a>"}}, 
+"sprite": "https://cyberjapandata.gsi.go.jp/vector/sprite/std", "glyphs": "https://cyberjapandata.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf","layers": [
 
 
 		{
@@ -8,7 +9,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"background-color": "rgba(230,230,240,1)",
+				"background-color": "rgba(240,240,230,1)",
 				"background-opacity": {
 				  "stops":[
 				    [10,0],
@@ -191,7 +192,7 @@
   "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-13m未満-通常","line-role":"outline","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
-  "filter":["all",["==","ftCode",2701],["!=","motorway",1],["<","rnkWidth",3]],
+  "filter":["all",["==","ftCode",2701],["!=","motorway",1],["any",["!has","rnkWidth"],["<","rnkWidth",3]]],
   "paint":{"line-color":[
     "case",["==", ["get", "rdCtg"], 0],"rgba(255,190,190,1)","rgba(255,255,255,1)"
   ],"line-width":{"stops":[[15,3],[17,8]]}},
@@ -214,7 +215,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",2701],["==","motorway",1]],
-  "paint":{"line-color":"rgba(255,180,50,1)","line-width":{"stops":[[15,3],[17,8]]}},
+  "paint":{"line-color":"rgba(0,151,0,1)","line-width":{"stops":[[15,3],[17,8]]}},
   "layout":{"line-cap":"round","line-join":"round","visibility":"visible"},
   "id":"road-superhighway-normal"
 },
@@ -224,7 +225,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-運休中","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["any",["==","railState",5],["==","opeState",1]]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1,"line-dasharray":[3,2,3,8]},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1,"line-dasharray":[3,2,3,8]},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-sleep"
 },
@@ -235,7 +236,7 @@
     ["==","ftCode",8201],["in","snglDbl",1,3],
     ["all",["!=","railState",1],["!=","railState",2],["!=","railState",3],["!=","railState",4],["!=","railState",5],["!=","railState",100],["!=","railState",300],["!=","opeState",1]]
   ],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-normal-single"
 },
@@ -246,7 +247,7 @@
     ["==","ftCode",8201],["==","snglDbl",2],
     ["all",["!=","railState",1],["!=","railState",2],["!=","railState",3],["!=","railState",4],["!=","railState",5],["!=","railState",100],["!=","railState",300],["!=","opeState",1]]
   ],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1, "line-gap-width":1},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1, "line-gap-width":1},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-normal-double"
 },
@@ -258,8 +259,8 @@
   "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-13m未満-高架(枠線)","line-role":"outline","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
-  "filter":["all",["==","ftCode",2703],["!=","motorway",1],["<","rnkWidth",3]],
-  "paint":{"line-color":"rgba(230,230,240,1)","line-width":{"stops":[[15,7],[17,12]]}},
+  "filter":["all",["==","ftCode",2703],["!=","motorway",1],["any",["!has","rnkWidth"],["<","rnkWidth",3]]],
+  "paint":{"line-color":"rgba(240,240,230,1)","line-width":{"stops":[[15,7],[17,12]]}},
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-class10-bridge-case"
 },
@@ -279,7 +280,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",2703],["!=","motorway",1],[">","rnkWidth",2]],
-  "paint":{"line-color":"rgba(230,230,240,1)","line-width":{"stops":[[15,9],[17,19]]}},
+  "paint":{"line-color":"rgba(240,240,230,1)","line-width":{"stops":[[15,9],[17,19]]}},
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-class1-bridge-case"
 },
@@ -299,7 +300,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",2703],["==","motorway",1]],
-  "paint":{"line-color":"rgba(230,230,240,1)","line-width":{"stops":[[15,7],[17,12]]}},
+  "paint":{"line-color":"rgba(240,240,230,1)","line-width":{"stops":[[15,7],[17,12]]}},
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-superhighway-bridge-case"
 },
@@ -308,7 +309,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",2703],["==","motorway",1]],
-  "paint":{"line-color":"rgba(255,180,50,1)","line-width":{"stops":[[15,3],[17,8]]}},
+  "paint":{"line-color":"rgba(0,151,0,1)","line-width":{"stops":[[15,3],[17,8]]}},
   "layout":{"line-cap":"round","line-join":"round","visibility":"visible"},
   "id":"road-superhighway-bridge"
 },
@@ -318,7 +319,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-橋梁(枠線)","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["any",["==","railState",1]]],
-  "paint":{"line-color":"rgba(230,230,240,1)","line-width":7},
+  "paint":{"line-color":"rgba(240,240,230,1)","line-width":7},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-bridge-case"
 },
@@ -326,7 +327,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-橋梁-単線","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["in","snglDbl",1,3],["any",["==","railState",1]]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-bridge-single"
 },
@@ -334,7 +335,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-橋梁-単線","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["==","snglDbl",2],["any",["==","railState",1]]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1, "line-gap-width":1},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1, "line-gap-width":1},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-bridge-double"
 },
@@ -393,7 +394,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",2704],["==","motorway",1]],
-  "paint":{"line-color":"rgba(255,180,50,1)","line-width":{"stops":[[15,3],[17,8]]},"line-opacity":0.5,"line-dasharray":[2,2]},
+  "paint":{"line-color":"rgba(0,151,0,1)","line-width":{"stops":[[15,3],[17,8]]},"line-opacity":0.5,"line-dasharray":[2,2]},
   "layout":{"line-cap":"round","line-join":"round","visibility":"visible"},
   "id":"road-superhighway-tunnel"
 },
@@ -403,7 +404,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-地下-単線","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["in","snglDbl",1,3],["any",["==","railState",100],["==","railState",300],["==","railState",2],["==","railState",3]]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1,"line-opacity":0.8,"line-dasharray":[5,5]},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1,"line-opacity":0.8,"line-dasharray":[5,5]},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-tunnel-single"
 },
@@ -411,7 +412,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-地下-単線","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["==","snglDbl",2],["any",["==","railState",100],["==","railState",300],["==","railState",2],["==","railState",3]]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":1,"line-opacity":0.8,"line-dasharray":[5,5],"line-gap-width":1},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":1,"line-opacity":0.8,"line-dasharray":[5,5],"line-gap-width":1},
   "layout":{"line-cap":"butt","visibility":"visible"},
   "id":"railway-tunnel-double"
 },
@@ -424,7 +425,7 @@
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道-駅","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":4,"maxzoom":17,
   "filter":["all",["==","ftCode",8201],["==","snglDbl",4]],
-  "paint":{"line-color":"rgba(0,170,0,1)","line-width":6},
+  "paint":{"line-color":"rgba(100,100,251,1)","line-width":4},
   "layout":{"line-cap":"round","visibility":"visible"},
   "id":"railway-station"
 },
