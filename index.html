@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<title>Railway Map</title>
+<title>Map</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
@@ -82,6 +82,50 @@ var change_style_1 = function(){
 var change_style_2 = function(){
   map.setStyle('./railway2.json');
 }
+
+
+
+//ポップアップ表示
+var popup = new mapboxgl.Popup();
+map.on('click', function(e) {
+  
+  
+  //レンダリングされた地物を取得
+  var features = map.queryRenderedFeatures(e.point);
+  if (!features.length) {
+    popup.remove();
+    return;
+  }
+  
+  var htmlString = ""; //ポップアップ
+  
+  for(i in features){
+  
+      //ポップアップ表示 --------------------
+      var feature = features[i];
+      console.log(feature);
+    
+      var featureProperties = "<table>";
+      for(name in feature.properties){
+          featureProperties = featureProperties + "<tr><td style='vertical-align:top; color:#0000ff;'>" + name + "</td>";
+          featureProperties = featureProperties + "<td style='color:#000000;'>" + feature.properties[name] + "</td></tr>";
+      }
+      featureProperties = featureProperties +  "</table>";
+      
+      htmlString = htmlString + "<span style='font-weight:bold;' >" + feature.layer.id + ":" + feature.sourceLayer + "</span>" + featureProperties;
+      //htmlString = htmlString + "<br>データソース：" + feature.sourceLayer + "<br>--属性値：" + JSON.stringify( feature.properties );
+      //レイヤID => feature.layer.id
+    
+    
+  }
+  
+  //結果の表示
+  //ポップアップ
+  popup.setLngLat([ e.lngLat.lng, e.lngLat.lat ])
+    .setHTML(htmlString)
+    .addTo(map);
+  
+});
 
 </script>
  
