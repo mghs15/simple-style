@@ -5,8 +5,9 @@ demo https://mghs15.github.io/simple-style/index.html
 
 ## スタイルのシンプル化にあたって
 * 国道/県道/市町村道やJR/私鉄といった管理・運営主体の区別を削除。
+  * 道路の色はデータドリブンで国道/県道/市町村道を区別
 * 幅員（13mを境に2区分）や単複の区別のみ
-* 階層はトンネル/通常部/高架のみ区別
+* 階層はトンネル/通常部/高架/高架1/高架2の区別
 
 ## 参考文献
 https://github.com/gsi-cyberjapan/gsivectortile-3d-like-building
