@@ -47,12 +47,10 @@ button.local {
 
 
 <div id='map'></div>
-<!--
 <div id='menu'>
-  <button type="button" class="local" name="monochrome" onclick="change_style_1()" >鉄道のみ強調</button>
-  <button type="button" class="local" name="monochrome" onclick="change_style_2()" >自治体等の境界も強調</button>
+  <button type="button" class="local" name="monochrome" onclick="addRasterLayer('seamlessphoto')" >空中写真</button>
 </div>
--->
+
 
 <script>
 /*************************************************/
@@ -64,8 +62,8 @@ var map = new mapboxgl.Map({
   style: './style.json', // stylesheet location
   center: [139.78148, 35.768793], // starting position [lng, lat]
   zoom: 9, // starting zoom
-  minZoom: 8,
-  maxZoom: 16.99,
+  minZoom: 4,
+  maxZoom: 17.99,
   localIdeographFontFamily: ['MS Gothic', 'Hiragino Kaku Gothic Pro', 'sans-serif']
 });
 
@@ -76,13 +74,34 @@ map.addControl(new mapboxgl.ScaleControl() );
 /*************************************************/
 /*地図の切り替え                                 */
 /*************************************************/
-var change_style_1 = function(){
-  map.setStyle('./railway.json');
+var addRasterLayer = function(tileid){
+  var layerid = "layer-" + tileid;
+  var sourceid = "source-" + tileid;
+  var ext = "jpg";
+  
+  if(map.getLayer(layerid)){
+    map.removeLayer(layerid);
+    if(map.getSource(sourceid)){
+      map.removeSource(sourceid);
+    }
+    return;
+  }
+  map.addSource(sourceid, {
+    type: 'raster',
+    tiles: ['https://cyberjapandata.gsi.go.jp/xyz/' + tileid + '/{z}/{x}/{y}.' + ext ],
+    minzoom: 2,
+    maxzoom: 18
+  });
+  
+  
+  map.addLayer({
+    id: layerid,
+    type: 'raster',
+    source: sourceid,
+    layout: {},
+    paint: {}
+  }, 'background-insert1');
 }
-var change_style_2 = function(){
-  map.setStyle('./railway2.json');
-}
-
 
 
 //ポップアップ表示
