@@ -201,7 +201,19 @@
 {"metadata":{"layer-id":"layer-737","title":"高速自動車道","path":"道路-高速自動車道","added":1},"type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"road","minzoom":6,"maxzoom":8,"filter":["all",["==","ftCode",52703]],"paint":{"line-color":"rgb(123,183,124)","line-width":{"stops":[[6,1.5],[7,2.5]]}},"layout":{"line-cap":"square","visibility":"visible"},"id":"gsibv-vectortile-layer-1407"},
 {"metadata":{"layer-id":"layer-738","title":"高速自動車道トンネル","path":"道路-高速自動車道トンネル","added":1},"type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"road","minzoom":6,"maxzoom":8,"filter":["all",["==","ftCode",52704]],"paint":{"line-color":"rgb(123,183,124)","line-width":{"stops":[[6,1.5],[7,2.5]]}},"layout":{"line-cap":"square","visibility":"visible"},"id":"gsibv-vectortile-layer-1408"},
 
-
+{
+  "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-道路縁","line-role":"outline","added":1},
+  "type":"line","source":"gsibv-vectortile-source-1-4-16",
+  "source-layer":"road","minzoom":14,"maxzoom":18,
+  "paint":{
+	  "line-color":"rgba(240,240,230,1)",
+	  "line-width":{"stops":[[15,3],[17,4]]}
+  },
+  "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
+  "id":"road-edge-all"
+},
+	
+	
 {
   "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-道路縁","line-role":"outline","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
