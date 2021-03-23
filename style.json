@@ -235,7 +235,9 @@
   "source-layer":"road","minzoom":14,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
   "paint":{
-	  "line-color":"rgba(230,230,220,1)",
+	  "line-color":"line-color":[
+	  	"case",["==", ["get", "rdCtg"], 0],"rgba(255,190,190,1)",["==", ["get", "rdCtg"], 1],"rgba(255,211,111,1)","rgba(255,255,255,1)"
+	  ],
 	  "line-width":{"stops":[[15,4],[17,5]]}
   },
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
@@ -246,9 +248,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":8,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
-  "paint":{"line-color":[
-    "case",["==", ["get", "rdCtg"], 0],"rgba(255,190,190,1)",["==", ["get", "rdCtg"], 1],"rgba(255,211,111,1)","rgba(255,255,255,1)"
-  ],"line-width":{"stops":[[15,2],[17,3]]},"line-dasharray":[2,2]},
+  "paint":{"line-color":"rgba(152,152,152,1)","line-width":{"stops":[[15,2],[17,3]]},"line-dasharray":[2,2]},
   "layout":{"line-cap":"butt","line-join":"round","line-sort-key":["-",10,["get","rdCtg"]],"visibility":"visible"},
   "id":"road-path-normal"
 },
