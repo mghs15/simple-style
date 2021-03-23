@@ -235,7 +235,7 @@
   "source-layer":"road","minzoom":14,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
   "paint":{
-	  "line-color":"line-color":[
+	  "line-color":[
 	  	"case",["==", ["get", "rdCtg"], 0],"rgba(255,190,190,1)",["==", ["get", "rdCtg"], 1],"rgba(255,211,111,1)","rgba(255,255,255,1)"
 	  ],
 	  "line-width":{"stops":[[15,4],[17,5]]}
