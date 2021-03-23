@@ -232,13 +232,13 @@
 {
   "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-徒歩・庭園・石段","line-role":"outline","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
-  "source-layer":"road","minzoom":14,"maxzoom":17,
+  "source-layer":"road","minzoom":8,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
   "paint":{
 	  "line-color":[
 	  	"case",["==", ["get", "rdCtg"], 0],"rgba(255,190,190,1)",["==", ["get", "rdCtg"], 1],"rgba(255,211,111,1)","rgba(255,255,255,1)"
 	  ],
-	  "line-width":{"stops":[[15,4],[17,5]]}
+	  "line-width":{"stops":[[15,3],[17,4]]}
   },
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-path-edge"
@@ -248,7 +248,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":8,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
-  "paint":{"line-color":"rgba(152,152,152,1)","line-width":{"stops":[[15,2],[17,3]]},"line-dasharray":[2,2]},
+  "paint":{"line-color":"rgba(152,152,152,1)","line-width":{"stops":[[15,1],[17,2]]},"line-dasharray":[4,2]},
   "layout":{"line-cap":"butt","line-join":"round","line-sort-key":["-",10,["get","rdCtg"]],"visibility":"visible"},
   "id":"road-path-normal"
 },
