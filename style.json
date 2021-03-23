@@ -204,10 +204,10 @@
 {
   "metadata":{"layer-id":"layer-743","title":"通常部","path":"道路-道路縁","line-role":"outline","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
-  "source-layer":"road","minzoom":14,"maxzoom":18,
+  "source-layer":"road","minzoom":14,"maxzoom":17,
   "paint":{
-	  "line-color":"rgba(240,240,230,1)",
-	  "line-width":{"stops":[[15,3],[17,4]]}
+	  "line-color":"rgba(230,230,220,1)",
+	  "line-width":{"stops":[[15,4],[17,5]]}
   },
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-edge-all"
@@ -223,7 +223,7 @@
     ["all",[">","ftCode",2720],["<","ftCode",2729]],
     ["all",[">","ftCode",2400],["<","ftCode",2499]]
   ],
-  "paint":{"line-color":"rgba(255,255,255,1)","line-width":1},
+  "paint":{"line-color":"rgba(152,152,152,1)","line-width":1},
   "layout":{"line-cap":"butt","line-join":"round","visibility":"visible"},
   "id":"road-edge"
 },
