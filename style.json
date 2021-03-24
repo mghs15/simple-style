@@ -231,7 +231,7 @@
 {
   "metadata":{"layer-id":"layer-902","title":"単線","path":"鉄道","added":1},
   "type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"railway","minzoom":8,"maxzoom":17,
-  "filter":["all",
+  "filter":["any",
     ["<","ftCode",2800],[">","ftCode",2899]
   ],
   "paint":{"line-color":"rgba(240,240,230,1)","line-width":4},
