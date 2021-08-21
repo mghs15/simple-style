@@ -297,7 +297,7 @@
   "type":"line","source":"gsibv-vectortile-source-1-4-16",
   "source-layer":"road","minzoom":8,"maxzoom":17,
   "filter":["all",[">","ftCode",2710],["!=","motorway",1]],
-  "paint":{"line-color":"rgba(152,152,152,1)","line-width":{"stops":[[15,1],[17,2]]},"line-dasharray":[6,1]},
+  "paint":{"line-color":"rgba(112,112,112,1)","line-width":{"stops":[[15,1],[17,2]]},"line-dasharray":[6,1]},
   "layout":{"line-cap":"butt","line-join":"round","line-sort-key":["-",10,["get","rdCtg"]],"visibility":"visible"},
   "id":"road-path-normal"
 },
