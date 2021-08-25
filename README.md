@@ -3,6 +3,10 @@
 
 demo https://mghs15.github.io/simple-style/index.html
 
+植生記号の周りに、緑の点々を表示して、草が生えてる感じにしてみた。
+
+demo https://mghs15.github.io/simple-style/vegetation.html
+
 ## スタイルのシンプル化にあたって
 * 国道/県道/市町村道やJR/私鉄といった管理・運営主体の区別を削除。
   * 道路の色はデータドリブンで国道/県道/市町村道を区別
