@@ -49,6 +49,7 @@ button.local {
 <div id='map'></div>
 <div id='menu'>
   <button type="button" class="local" name="monochrome" onclick="addRasterLayer('seamlessphoto')" >空中写真</button>
+  <button type="button" class="local" name="monochrome" onclick="addVegetationLayer()" >植生模様</button>
 </div>
 
 
@@ -186,29 +187,7 @@ const createVegetationPattern = (cc) => {
 
 }
 
-map.on('load', () => {
-  
-  const vegdata = {
-    "6311": [77, 179, 118, 255], //田んぼ
-    "6312": [131, 179, 77, 255], //畑
-    "6313": [111, 173, 42, 255], //茶畑
-    "6314": [93, 176, 0, 255], //果樹園
-    "6321": [110, 179, 68, 255], //広葉樹
-    "6322": [32, 105, 58, 255],  //針葉樹
-    "6323": [74, 117, 61, 255],  //竹林
-    "6324": [177, 219, 37, 255],  //ヤシ科樹林
-    "6325": [28, 120, 0, 255],  //ハイマツ地
-    "6326": [73, 105, 72, 255],  //笹地
-    "6327": [164, 179, 100, 255]  //荒地
-  };
-  
-  for(name in vegdata){
-    const imgdata = createVegetationPattern(vegdata[name]);
-    const imgsize = Math.sqrt(imgdata.length/4);
-    map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
-  }
-  
-  map.addLayer({
+const vegetationLayer = {
      "id": "vegetation",
      "source": "gsibv-vectortile-source-1-4-16",
      "type": "symbol", 
@@ -249,12 +228,49 @@ map.on('load', () => {
      "paint": {
          
      }
-  }, "gsibv-vectortile-layer-973" // 田んぼのスタイルレイヤ
+  };
+
+map.on('load', () => {
+  
+  const vegdata = {
+    "6311": [77, 179, 118, 255], //田んぼ
+    "6312": [131, 179, 77, 255], //畑
+    "6313": [111, 173, 42, 255], //茶畑
+    "6314": [93, 176, 0, 255], //果樹園
+    "6321": [110, 179, 68, 255], //広葉樹
+    "6322": [32, 105, 58, 255],  //針葉樹
+    "6323": [74, 117, 61, 255],  //竹林
+    "6324": [177, 219, 37, 255],  //ヤシ科樹林
+    "6325": [28, 120, 0, 255],  //ハイマツ地
+    "6326": [73, 105, 72, 255],  //笹地
+    "6327": [164, 179, 100, 255]  //荒地
+  };
+  
+  for(name in vegdata){
+    const imgdata = createVegetationPattern(vegdata[name]);
+    const imgsize = Math.sqrt(imgdata.length/4);
+    map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
+  }
+  
+  map.addLayer(
+    vegetationLayer, 
+    "gsibv-vectortile-layer-973" // 田んぼのスタイルレイヤ
   );
   
 });
 
-
+const addVegetationLayer = function(){
+  const layerid = vegetationLayer.id;
+  if(map.getLayer(layerid)){
+    map.removeLayer(layerid);
+    return;
+  }
+  
+  map.addLayer(
+    vegetationLayer, 
+    "gsibv-vectortile-layer-973" // 田んぼのスタイルレイヤ
+  );
+}
 
 </script>
  
