@@ -7,6 +7,9 @@ demo https://mghs15.github.io/simple-style/index.html
 
 demo https://mghs15.github.io/simple-style/vegetation.html
 
+使った色の検討 https://mghs15.github.io/simple-style/veg-color-palette.html
+
+
 ## スタイルのシンプル化にあたって
 * 国道/県道/市町村道やJR/私鉄といった管理・運営主体の区別を削除。
   * 道路の色はデータドリブンで国道/県道/市町村道を区別
