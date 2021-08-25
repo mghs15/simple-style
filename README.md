@@ -9,6 +9,7 @@ demo https://mghs15.github.io/simple-style/vegetation.html
 
 使った色の検討 https://mghs15.github.io/simple-style/veg-color-palette.html
 
+![植生記号の周りに、緑の点々を表示したイメージ](veg-sample.png "植生記号の周りに、緑の点々を表示したイメージ")
 
 ## スタイルのシンプル化にあたって
 * 国道/県道/市町村道やJR/私鉄といった管理・運営主体の区別を削除。
