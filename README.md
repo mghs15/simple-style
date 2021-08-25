@@ -1,9 +1,9 @@
 # simple-style
-地理院地図Vectorをシンプルなスタイルで表示してみる
+地理院地図Vectorをシンプルなスタイルで表示してみる試み。
 
 demo https://mghs15.github.io/simple-style/index.html
 
-植生記号の周りに、緑の点々を表示して、草が生えてる感じにしてみた。
+ついでに、緑に乏しいので、植生記号の周りに、緑の点々を表示して、草が生えてる感じにしてみた。
 
 demo https://mghs15.github.io/simple-style/vegetation.html
 
