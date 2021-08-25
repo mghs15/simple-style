@@ -160,22 +160,24 @@ const createVegetationPattern = (cc) => {
   const arr = [];
   const wb = [255, 255, 255, 0];
   const res = arr.concat(
-    wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    cc, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    cc, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, cc, cc,
+    cc, cc, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, cc, cc,
+    cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
     wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb,
     wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb,
-    cc, cc, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb,
-    cc, cc, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
     wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
     wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb,
     wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb,
-    wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb,
+    wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    cc, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb,
+    cc, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, cc,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, cc,
+
+
   );
   
   const r = new Uint8Array(res);
@@ -186,14 +188,30 @@ const createVegetationPattern = (cc) => {
 
 map.on('load', () => {
   
-  const imgdata = createVegetationPattern([110, 179, 68, 255]);
-  const imgsize = Math.sqrt(imgdata.length/4);
-  map.addImage("vegetation", { width: imgsize, height: imgsize, data: imgdata });
-
+  const vegdata = {
+    "6311": [77, 179, 118, 255], //田んぼ
+    "6312": [131, 179, 77, 255], //畑
+    "6313": [111, 173, 42, 255], //茶畑
+    "6314": [93, 176, 0, 255], //果樹園
+    "6321": [110, 179, 68, 255], //広葉樹
+    "6322": [32, 105, 58, 255],  //針葉樹
+    "6323": [74, 117, 61, 255],  //竹林
+    "6324": [177, 219, 37, 255],  //ヤシ科樹林
+    "6325": [28, 120, 0, 255],  //ハイマツ地
+    "6326": [73, 105, 72, 255],  //笹地
+    "6327": [164, 179, 100, 255]  //荒地
+  };
+  
+  for(name in vegdata){
+    const imgdata = createVegetationPattern(vegdata[name]);
+    const imgsize = Math.sqrt(imgdata.length/4);
+    map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
+  }
+  
   map.addLayer({
      "id": "vegetation",
      "source": "gsibv-vectortile-source-1-4-16",
-     "type": "symbol", //円は、絵柄を挿入できないらしい。
+     "type": "symbol", 
      "source-layer":"symbol",
      "minzoom":4,
      "maxzoom":17,
@@ -203,11 +221,27 @@ map.on('load', () => {
        ["==","ftCode",6313],
        ["==","ftCode",6314],
        ["==","ftCode",6321],
-       ["==","ftCode",6322]
+       ["==","ftCode",6322],
+       ["==","ftCode",6323],
+       ["==","ftCode",6324],
+       ["==","ftCode",6325],
+       ["==","ftCode",6326],
+       ["==","ftCode",6327]
      ],
      "layout": {
-          "icon-size" : 1,
-          "icon-image": "vegetation",
+          "icon-size" : [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              14,
+              1,
+              15,
+              1.5,
+              16,
+              2
+          ],
+          "icon-image": ["to-string", ["get", "ftCode"]],
+          // "icon-rotate": ["*", ["get", "ftCode"], 20], 
           "icon-allow-overlap": true,
           "icon-ignore-placement": true,
           "visibility": "visible"
@@ -215,7 +249,7 @@ map.on('load', () => {
      "paint": {
          
      }
-  }, "gsibv-vectortile-layer-973" // 田んぼのレイヤ
+  }, "gsibv-vectortile-layer-973" // 田んぼのスタイルレイヤ
   );
   
 });
