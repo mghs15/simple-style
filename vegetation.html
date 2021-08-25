@@ -153,33 +153,68 @@ map.on('click', function(e) {
 /*植生アレンジ                                   */
 /*************************************************/
 
-const createVegetationPattern = (cc) => {
-  // c shoud be array like [255, 255, 255, 0]
-  //const imgsize = 12;
-  //const data = new Uint8Array(imgsize * imgsize * 4);
+const createVegetationPattern = (cc, pat = 2) => {
   
   const arr = [];
   const wb = [255, 255, 255, 0];
-  const res = arr.concat(
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc,
-    wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, cc, cc,
-    wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, cc, wb, wb, cc, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, cc, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, 
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb,
-    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
-    wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, 
-    wb, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, cc, cc,
-    cc, wb, wb, wb, wb, wb, cc, cc, wb, wb, cc, wb, wb, wb, cc, cc,
 
-
+  const pat1 = [].concat(
+    wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, cc, cc, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    cc, cc, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, 
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, cc, cc,
+    wb, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, 
+    wb, cc, cc, cc, cc, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, 
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, cc, cc, wb, wb, wb, 
   );
+  const pat2 = [].concat(
+    cc, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb,
+    cc, cc, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc,
+    cc, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, cc, cc, 
+    wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, 
+    wb, wb, wb, wb, wb, wb, cc, wb, wb, cc, cc, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, cc, wb, wb, wb, wb, wb,
+  );
+  const pat3 = [].concat(
+    cc, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, cc,
+    wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    cc, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, cc, 
+    wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb,
+    wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, 
+    wb, wb, wb, wb, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb,
+    cc, wb, wb, wb, wb, wb, wb, cc, wb, wb, wb, wb, wb, wb, wb, cc,
+  );
+  const res = (pat == 1) ? arr.concat(pat1) : 
+              (pat == 2) ? arr.concat(pat2) :
+              arr.concat(pat3);
   
   const r = new Uint8Array(res);
   console.log("Length:", r.length)
@@ -212,12 +247,9 @@ const vegetationLayer = {
               "interpolate",
               ["linear"],
               ["zoom"],
-              14,
-              1,
-              15,
-              1.5,
-              16,
-              2
+              14,1,
+              15,2,
+              16,4
           ],
           "icon-image": ["to-string", ["get", "ftCode"]],
           // "icon-rotate": ["*", ["get", "ftCode"], 20], 
@@ -243,13 +275,19 @@ map.on('load', () => {
     "6324": [99, 117, 0, 255],  //ヤシ科樹林
     "6325": [37, 117, 0, 255],  //ハイマツ地
     "6326": [0, 117, 0, 255],  //笹地
-    "6327": [159, 171, 92, 255]  //荒地
+    "6327": [194, 201, 153, 255]  //荒地
   };
   
   for(name in vegdata){
-    const imgdata = createVegetationPattern(vegdata[name]);
-    const imgsize = Math.sqrt(imgdata.length/4);
-    map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
+    if(+name < 6320 || +name > 6325){
+      const imgdata = createVegetationPattern(vegdata[name], 1);
+      const imgsize = Math.sqrt(imgdata.length/4);
+      map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
+    }else{
+      const imgdata = createVegetationPattern(vegdata[name],2);
+      const imgsize = Math.sqrt(imgdata.length/4);
+      map.addImage(name, { width: imgsize, height: imgsize, data: imgdata });
+    }
   }
   
   map.addLayer(
