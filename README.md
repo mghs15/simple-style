@@ -19,6 +19,9 @@ demo https://mghs15.github.io/simple-style/vegetation.html
 * 幅員（13mを境に2区分）や単複の区別のみ
 * 階層はトンネル/通常部/高架/高架1/高架2の区別
 
+## メモ
+* 2021-10-31: 階層（lvOrder）の処理がミスっていたので修正。
+
 ## 参考文献
 https://github.com/gsi-cyberjapan/gsivectortile-3d-like-building
 
