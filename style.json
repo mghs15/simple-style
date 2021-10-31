@@ -10,7 +10,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"background-color": "rgba(240,240,230,1)",
+				"background-color": "rgb(240,240,230)",
 				"background-opacity": {
 				  "stops":[
 				    [10,0],
@@ -175,7 +175,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"background-color": "rgba(240,240,230,1)",
+				"background-color": "rgb(240,240,230)",
 				"background-opacity": 0
 			}
 		},
