@@ -21,6 +21,7 @@ demo https://mghs15.github.io/simple-style/vegetation.html
 
 ## メモ
 * 2021-10-31: 階層（lvOrder）の処理がミスっていたので修正。
+* 2022-06-26: ダークモードやモノクロを作成しやすいようにbasic.jsonをもとに`convert.js`（Node製）でスタイル変更をできるような試験を開始。
 
 ## 参考文献
 https://github.com/gsi-cyberjapan/gsivectortile-3d-like-building
